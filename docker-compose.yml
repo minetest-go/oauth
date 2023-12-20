@@ -2,7 +2,8 @@ version: "3.6"
 
 services:
  oauth:
-  image: golang:1.21.4
+  image: golang:1.21.5
+  volumes:
    - ".:/data"
    - "go_dir:/go"
    - "go_cache:/.cache"

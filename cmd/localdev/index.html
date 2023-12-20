@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OAuth local dev</title>
+    </head>
+    <body>
+        <h5>OAuth login</h5>
+        <ul>
+            {{range $key, $value := .Logins}}
+            <li>
+                <a href="{{$value}}">{{$key}}</a>
+            </li>
+            {{end}}
+        </ul>
+    </body>
+</html>
