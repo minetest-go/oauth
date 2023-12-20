@@ -32,5 +32,9 @@ func ExampleOauthHandler() {
 	// navigate the user to the login-url
 	fmt.Printf("Login-URL: '%s'", handler.LoginURL())
 
+	// start webserver
+	server := &http.Server{Addr: ":8080", Handler: nil}
+	server.ListenAndServe()
+
 	// profit?
 }
