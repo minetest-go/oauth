@@ -5,6 +5,8 @@ OAuth provider library for the minetest community
 
 Docs: https://pkg.go.dev/github.com/minetest-go/oauth
 
+Example implementation: https://pkg.go.dev/github.com/minetest-go/oauth#example-OauthHandler
+
 # Overview
 
 Supported providers:
