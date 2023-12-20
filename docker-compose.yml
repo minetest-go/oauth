@@ -1,0 +1,19 @@
+version: "3.6"
+
+services:
+ oauth:
+  image: golang:1.21.5
+  volumes:
+   - ".:/data"
+   - "go_dir:/go"
+   - "go_cache:/.cache"
+  environment:
+   - BASE_URL=http://localhost:8080
+  ports:
+   - "8080:8080"
+  working_dir: /data
+  command: ["go", "run", "./cmd/localdev"]
+
+volumes:
+  go_cache: {}
+  go_dir: {}
