@@ -21,6 +21,8 @@ func NewHandler(cb OauthCallback, cfg *OAuthConfig) *OauthHandler {
 		provider = &GithubOauth{}
 	case ProviderTypeMesehub:
 		provider = &MesehubOauth{}
+	case ProviderTypeCodeberg:
+		provider = &CodebergOauth{}
 	default:
 		panic("unkown provider-type: " + cfg.Provider)
 	}

@@ -26,10 +26,11 @@ type OAuthConfig struct {
 type ProviderType string
 
 const (
-	ProviderTypeGithub  ProviderType = "GITHUB"
-	ProviderTypeDiscord ProviderType = "DISCORD"
-	ProviderTypeMesehub ProviderType = "MESEHUB"
-	ProviderTypeCDB     ProviderType = "CDB"
+	ProviderTypeGithub   ProviderType = "GITHUB"
+	ProviderTypeDiscord  ProviderType = "DISCORD"
+	ProviderTypeMesehub  ProviderType = "MESEHUB"
+	ProviderTypeCDB      ProviderType = "CDB"
+	ProviderTypeCodeberg ProviderType = "CODEBERG"
 )
 
 type OauthProvider interface {

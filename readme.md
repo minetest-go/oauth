@@ -41,6 +41,7 @@ Callback-urls have to match the following list:
 * Mesehub: `http://localhost:8080/api/oauth_callback/mesehub`
 * Github: `http://localhost:8080/api/oauth_callback/github`
 * Discord: `http://localhost:8080/api/oauth_callback/discord`
+* Codeberg: `http://localhost:8080/api/oauth_callback/codeberg`
 
 Start the dev server:
 ```sh

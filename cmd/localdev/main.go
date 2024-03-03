@@ -71,6 +71,14 @@ func main() {
 		})
 	}
 
+	if os.Getenv("CODEBERG_APP_ID") != "" {
+		setup_provider("/api/oauth_callback/codeberg", &oauth.OAuthConfig{
+			Provider: oauth.ProviderTypeCodeberg,
+			ClientID: os.Getenv("CODEBERG_APP_ID"),
+			Secret:   os.Getenv("CODEBERG_APP_SECRET"),
+		})
+	}
+
 	http.HandleFunc("/", index)
 	fmt.Printf("Starting local oauth dev env on %s\n", BaseURL)
 
