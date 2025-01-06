@@ -22,7 +22,7 @@ type CDBUser struct {
 type CDBOauth struct{}
 
 func (o *CDBOauth) LoginURL(cfg *OAuthConfig) string {
-	return fmt.Sprintf("https://content.minetest.net/oauth/authorize/?response_type=code&client_id=%s&redirect_uri=%s", cfg.ClientID, url.QueryEscape(cfg.CallbackURL))
+	return fmt.Sprintf("https://content.luanti.org/oauth/authorize/?response_type=code&client_id=%s&redirect_uri=%s", cfg.ClientID, url.QueryEscape(cfg.CallbackURL))
 }
 
 func (o *CDBOauth) RequestAccessToken(code string, cfg *OAuthConfig) (string, error) {
@@ -34,7 +34,7 @@ func (o *CDBOauth) RequestAccessToken(code string, cfg *OAuthConfig) (string, er
 	w.WriteField("code", code)
 	w.Close()
 
-	req, err := http.NewRequest("POST", "https://content.minetest.net/oauth/token/", &data)
+	req, err := http.NewRequest("POST", "https://content.luanti.org/oauth/token/", &data)
 	if err != nil {
 		return "", err
 	}
@@ -61,7 +61,7 @@ func (o *CDBOauth) RequestAccessToken(code string, cfg *OAuthConfig) (string, er
 
 func (o *CDBOauth) RequestUserInfo(access_token string, cfg *OAuthConfig) (*OauthUserInfo, error) {
 	// fetch user data
-	req, err := http.NewRequest("GET", "https://content.minetest.net/api/whoami/", nil)
+	req, err := http.NewRequest("GET", "https://content.luanti.org/api/whoami/", nil)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +89,7 @@ func (o *CDBOauth) RequestUserInfo(access_token string, cfg *OAuthConfig) (*Oaut
 	}
 
 	// fetch user profile
-	req, err = http.NewRequest("GET", fmt.Sprintf("https://content.minetest.net/api/users/%s/", userData.Username), nil)
+	req, err = http.NewRequest("GET", fmt.Sprintf("https://content.luanti.org/api/users/%s/", userData.Username), nil)
 	if err != nil {
 		return nil, fmt.Errorf("new user-profile request error: %v", err)
 	}
@@ -111,7 +111,7 @@ func (o *CDBOauth) RequestUserInfo(access_token string, cfg *OAuthConfig) (*Oaut
 	}
 
 	if userProfile.ProfilePicURL != "" {
-		info.AvatarURL = fmt.Sprintf("https://content.minetest.net%s", userProfile.ProfilePicURL)
+		info.AvatarURL = fmt.Sprintf("https://content.luanti.org%s", userProfile.ProfilePicURL)
 	}
 	if userProfile.DisplayName != "" {
 		info.DisplayName = userProfile.DisplayName
